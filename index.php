@@ -1,20 +1,6 @@
 <?php
 
-/* con json_encode stampo a schermo l'array todo_list in una stringa json */
-/* $todo_list = [
-    [
-        'list_object' => 'fare la spesa',
-    ],
-    [
-        'list_object' => 'portare a spasso i cani',
-    ],
-    [
-        'list_object' => 'fare la spesa',
-    ]
-];
-header('Content-Type: application/json'); */
-// echo json_encode($todo_list)
-
+/* 
 // dichiaro con una variabile la la stringa di json, e con file_get_contents, leggo la stringa contenuta nel file.
 $todo_list_string = file_get_contents('todoList.json');
 var_dump($todo_list_string);
@@ -26,6 +12,22 @@ echo '<pre>';
 var_dump($todo_list);
 echo '<pre>';
 
+// con json_encode stampo a schermo l'array todo_list in una stringa json
+$todo_list = [
+    [
+        'list_object' => 'fare la spesa',
+    ],
+    [
+        'list_object' => 'portare a spasso i cani',
+    ],
+    [
+        'list_object' => 'fare la spesa',
+    ]
+];
+header('Content-Type: application/json');
+// echo json_encode($todo_list)
+
+
 //con array push possiamo aggiungere elementi all'array
 array_push($todo_list, ['list_object' => 'fare il bagno al cane']);
 var_dump($todo_list);
@@ -36,7 +38,7 @@ var_dump(($new_todo_list_string));
 
 //tramite file_put_contents, possiamo andare a scrivere all'interno di un file
 file_put_contents('todoList.json', $new_todo_list_string);
-
+ */
 
 ?>
 
@@ -56,21 +58,50 @@ file_put_contents('todoList.json', $new_todo_list_string);
 </head>
 
 <body>
-    <header>
-        <h1 class="text-center"> TODO LIST PHP</h1>
-    </header>
-    <main>
 
-    </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
+    <div id="app">
+
+        <header>
+            <h1 class="text-center"> TODO LIST PHP</h1>
+        </header>
+        <main>
+
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
+
+    <!-- cdn axsios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- cdn vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 </html>
