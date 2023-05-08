@@ -28,7 +28,14 @@ echo '<pre>';
 
 //con array push possiamo aggiungere elementi all'array
 array_push($todo_list, ['list_object' => 'fare il bagno al cane']);
-var_dump($todo_list)
+var_dump($todo_list);
+
+//ritrasformiamo di nuovo l'array con il push in una stringa json per poi sovrasfrivere il file json
+$new_todo_list_string = json_encode($todo_list);
+var_dump(($new_todo_list_string));
+
+//tramite file_put_contents, possiamo andare a scrivere all'interno di un file
+file_put_contents('todoList.json', $new_todo_list_string);
 
 
 ?>
