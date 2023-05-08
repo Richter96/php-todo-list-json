@@ -5,14 +5,27 @@ createApp({
         return {
             lists_todo: null,
             url_api_list: 'getList.php',
-            new_item_list: ''
+            new_item_list: 'ciao'
         }
     },
     methods: {
         add_item() {
-            console.log('add');
-            axios.post()
+            console.log('add list item');
+            const data = {
+                new_item: this.new_item_list
+            }
+            console.log(data);
 
+            axios.post('StoreItem.php', data,
+                {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(error => {
+                    console.error(error.message);
+                });
         }
     },
     mounted() {
