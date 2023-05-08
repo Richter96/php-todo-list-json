@@ -1,6 +1,7 @@
 <?php
 
-$todo_list = [
+/* con json_encode stampo a schermo l'array todo_list in una stringa json */
+/* $todo_list = [
     [
         'list_object' => 'fare la spesa',
     ],
@@ -11,6 +12,24 @@ $todo_list = [
         'list_object' => 'fare la spesa',
     ]
 ];
+header('Content-Type: application/json'); */
+// echo json_encode($todo_list)
+
+// dichiaro con una variabile la la stringa di json, e con file_get_contents, leggo la stringa contenuta nel file.
+$todo_list_string = file_get_contents('todoList.json');
+var_dump($todo_list_string);
+
+// tramite json_decode() trasformiamo una stringa json in una variabile php, in questo caso in un array
+$todo_list = json_decode($todo_list_string, true);
+
+echo '<pre>';
+var_dump($todo_list);
+echo '<pre>';
+
+//con array push possiamo aggiungere elementi all'array
+array_push($todo_list, ['list_object' => 'fare il bagno al cane']);
+var_dump($todo_list)
+
 
 ?>
 
