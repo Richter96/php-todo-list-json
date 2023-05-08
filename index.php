@@ -60,11 +60,20 @@ file_put_contents('todoList.json', $new_todo_list_string);
 <body>
 
     <div id="app">
-
         <header>
             <h1 class="text-center"> TODO LIST PHP</h1>
         </header>
         <main>
+            <div class="col-5 text-center m-auto">
+                <input type="text" @keyup.enter="add_item" placeholder="Inserisci un nuovo elemento">
+            </div>
+            <div class="card col-4 listItems">
+                <ul>
+                    <li v-for="list in lists_todo">
+                        {{ list.list_object }}
+                    </li>
+                </ul>
+            </div>
 
         </main>
         <footer>
