@@ -65,12 +65,12 @@ file_put_contents('todoList.json', $new_todo_list_string);
         </header>
         <main>
             <div class="col-5 text-center m-auto">
-                <input type="text" @keyup.enter="add_item" placeholder="Inserisci un nuovo elemento">
+                <input type="text" v-model="new_item_list" @keyup.enter="add_item" placeholder="Inserisci un nuovo elemento">
             </div>
             <div class="card col-4 listItems">
                 <ul>
                     <li v-for="list in lists_todo">
-                        {{ list.list_object }}
+                        {{ list }}
                     </li>
                 </ul>
             </div>
