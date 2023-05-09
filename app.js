@@ -23,6 +23,7 @@ createApp({
                 .then(response => {
                     console.log(response);
                     this.lists_todo = response.data
+                    console.log(this.lists_todo);
                 })
                 .catch(error => {
                     console.error(error.message);
@@ -36,10 +37,10 @@ createApp({
             .then(response => {
                 console.log(response)
                 this.lists_todo = response.data
+                console.log(this.lists_todo);
             })
             .catch(error => {
                 console.error(error.message);
             });
-        console.log(this.lists_todo);
     },
 }).mount('#app')
