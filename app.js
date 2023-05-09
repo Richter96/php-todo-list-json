@@ -29,19 +29,40 @@ createApp({
                     console.error(error.message);
                 });
         },
+
         complet_task(index) {
-            console.log('completed', index);
-            console.log('completed', this.lists_todo[index].done);
+            // console.log('completed', index);
+            // console.log('completed', this.lists_todo[index].done);
+            // this.lists_todo[index].done ^= 1
 
-            this.lists_todo[index].done ^= 1
+            // passo tramite chiamata post l'index al file completedTask
+            console.log('add list item');
+            const data = {
+                index_item: index
+            }
+            console.log(data);
 
+            axios.post('app/http/Controllers/TasksController/completeTask.php', data,
+                {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then(response => {
+                    console.log(response);
+                    this.lists_todo = response.data
+                    console.log(this.lists_todo);
+                })
+                .catch(error => {
+                    console.error(error.message);
+                });
         },
+
         delete_item() {
             console.log('elimina item');
+
         }
     },
     mounted() {
-        /* qui facciamo una chiamata axios */
+        /* qui facciamo una chiamata axios pre prendere i dati dal file json*/
         axios
             .get(this.url_api_list)
             .then(response => {
