@@ -7,3 +7,12 @@ body {
     margin: auto;
     border: 0.5rem solid;
 }
+
+ul {
+    list-style: none !important;
+}
+
+li {
+    border-bottom: 0.5rem solid black !important;
+    margin: 0.2rem 1rem !important;
+}

@@ -68,8 +68,8 @@ file_put_contents('todoList.json', $new_todo_list_string);
                 <input type="text" v-model="new_item_list" @keyup.enter="add_item" placeholder="Inserisci un nuovo elemento">
             </div>
             <div class="card col-4 listItems">
-                <ul>
-                    <li v-for="list in lists_todo">
+                <ul class="list-group list-group-flush mx-5">
+                    <li class="list-group-item" v-for="list in lists_todo">
                         {{ list }}
                     </li>
                 </ul>

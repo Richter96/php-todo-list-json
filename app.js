@@ -5,7 +5,7 @@ createApp({
         return {
             lists_todo: null,
             url_api_list: 'getList.php',
-            new_item_list: 'ciao'
+            new_item_list: ''
         }
     },
     methods: {
@@ -22,6 +22,7 @@ createApp({
                 })
                 .then(response => {
                     console.log(response);
+                    this.lists_todo = response.data
                 })
                 .catch(error => {
                     console.error(error.message);
@@ -39,6 +40,6 @@ createApp({
             .catch(error => {
                 console.error(error.message);
             });
-
+        console.log(this.lists_todo);
     },
 }).mount('#app')
