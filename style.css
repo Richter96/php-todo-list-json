@@ -9,10 +9,10 @@ body {
 }
 
 ul {
-    list-style: none !important;
+    list-style: none;
 }
 
 li {
-    border-bottom: 0.5rem solid black !important;
-    margin: 0.2rem 1rem !important;
+    border-bottom: 0.5rem solid black;
+    margin: 0.2rem 1rem;
 }
