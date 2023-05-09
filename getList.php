@@ -4,6 +4,6 @@
 $todo_list_string = file_get_contents('todoList.json');
 // var_dump($todo_list_string);
 
-echo $todo_list_string;
-
 header('Content-Type:application/json');
+
+echo $todo_list_string;
