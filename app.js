@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             lists_todo: null,
-            url_api_list: 'getList.php',
+            url_api_list: 'app/http/Controllers/TasksController/index.php',
             new_item_list: ''
         }
     },
@@ -16,7 +16,7 @@ createApp({
             }
             console.log(data);
 
-            axios.post('StoreItem.php', data,
+            axios.post('app/http/Controllers/TasksController/Store.php', data,
                 {
                     headers: { 'Content-Type': 'multipart/form-data' }
                 })
