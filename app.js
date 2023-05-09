@@ -9,7 +9,7 @@ createApp({
         }
     },
     methods: {
-        add_item() {
+        add_item(event) {
             console.log('add list item');
             const data = {
                 new_item: this.new_item_list
@@ -28,6 +28,7 @@ createApp({
                 .catch(error => {
                     console.error(error.message);
                 });
+            event.preventDefault();
         },
 
         complet_task(index) {
@@ -36,13 +37,35 @@ createApp({
             // this.lists_todo[index].done ^= 1
 
             // passo tramite chiamata post l'index al file completedTask
-            console.log('add list item');
+            // console.log('add list item');
             const data = {
                 index_item: index
             }
-            console.log(data);
+            // console.log(data);
 
             axios.post('app/http/Controllers/TasksController/completeTask.php', data,
+                {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then(response => {
+                    console.log(response);
+                    this.lists_todo = response.data
+                    // console.log(this.lists_todo);
+                })
+                .catch(error => {
+                    console.error(error.message);
+                });
+        },
+
+        delete_item(index) {
+            console.log('elimina item');
+            console.log(index);
+
+            const data = {
+                index_item: index
+            }
+
+            axios.post('app/http/Controllers/TasksController/delateTask.php', data,
                 {
                     headers: { 'Content-Type': 'multipart/form-data' }
                 })
@@ -54,11 +77,6 @@ createApp({
                 .catch(error => {
                     console.error(error.message);
                 });
-        },
-
-        delete_item() {
-            console.log('elimina item');
-
         }
     },
     mounted() {
