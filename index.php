@@ -72,11 +72,11 @@ file_put_contents('todoList.json', $new_todo_list_string);
             </div>
             <div class="card col-4 my-3 listItems">
                 <ul class="list-group list-group-flush mx-5">
-                    <li :class="list.done ? 'text-decoration-line-through' : ''" class="list-group-item list-group-item-action d-flex justify-content-between" v-for="(list, index) in lists_todo" @click="complet_task(index)">
-                        <p class="m-0">
+                    <li class="list-group-item list-group-item-action d-flex justify-content-between" v-for="(list, index) in lists_todo">
+                        <p class="m-0" :class="list.done ? 'text-decoration-line-through' : ''" @click="complet_task(index)">
                             {{ list.text }}
                         </p>
-                        <a class="trash" href="">
+                        <a class="trash" @click="delete_item(index)">
                             <i class="fa-solid fa-trash-can"></i>
                         </a>
                     </li>
