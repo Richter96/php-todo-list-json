@@ -35,6 +35,9 @@ createApp({
 
             this.lists_todo[index].done ^= 1
 
+        },
+        delete_item() {
+            console.log('elimina item');
         }
     },
     mounted() {
