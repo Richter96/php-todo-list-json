@@ -3,16 +3,13 @@ body {
 }
 
 .listItems {
-    width: 200px;
     margin: auto;
-    border: 0.5rem solid;
 }
 
-ul {
-    list-style: none;
+.trash {
+    color: red;
 }
 
-li {
-    border-bottom: 0.5rem solid black;
-    margin: 0.2rem 1rem;
+.trash:hover {
+    color: lightblue;
 }
