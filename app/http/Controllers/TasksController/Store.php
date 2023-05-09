@@ -26,7 +26,7 @@ if (isset($_POST['new_item'])) {
     $new_list_string = json_encode($todo_list_array);
 
     //push la nuova stringa di list in file json
-    file_put_contents('todoList.json', $new_list_string);
+    file_put_contents($file_path, $new_list_string);
 
     //aggiungiamo header
     header('Content-Type: application/json');
