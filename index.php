@@ -67,8 +67,11 @@ file_put_contents('todoList.json', $new_todo_list_string);
             <h1 class="text-center"> TODO LIST PHP</h1>
         </header>
         <main>
-            <div class="col-5 text-center m-auto">
-                <input type="text" v-model="new_item_list" @keyup.enter="add_item" placeholder="Inserisci un nuovo elemento">
+            <div class="col-4 text-center m-auto ">
+                <div class="input-group mb-3">
+                    <input class="form-control border-0" type="text" v-model="new_item_list" @keyup.enter="add_item" placeholder="Inserisci un nuovo elemento">
+                    <button class="btn btn-outline-secondary" @click="add_item">Button</button>
+                </div>
             </div>
             <div class="card col-4 my-3 listItems">
                 <ul class="list-group list-group-flush mx-5">
