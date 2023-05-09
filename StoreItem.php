@@ -3,21 +3,23 @@
 
 
 if (isset($_POST['new_item'])) {
-    $item = $_POST['new_item'];
+    // creiamo l'elemento item come un array prendendo come text l'input dell'area,  
+    $item = [
+        'text' => $_POST['new_item'],
+        'done' => false,
+    ];
 
     //leggiamo il file json con file_get_contents
     $todo_list_string = file_get_contents('todoList.json');
 
-    // convertiamo la stringa in un array per php
+    // convertiamo la stringa in un array associativo per php
     $todo_list_array = json_decode($todo_list_string, true);
 
-    echo '<prev>';
-    var_dump($todo_list_array);
+    // var_dump($todo_list_array);
 
     // pushamo all'inizio dell'array la lista
     array_unshift($todo_list_array, $item);
-    var_dump($todo_list_array);
-    echo '<prev>';
+    // var_dump($todo_list_array);
 
     // convertiamo l'array di nuovo in string jason
     $new_list_string = json_encode($todo_list_array);
