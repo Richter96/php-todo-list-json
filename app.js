@@ -28,6 +28,13 @@ createApp({
                 .catch(error => {
                     console.error(error.message);
                 });
+        },
+        complet_task(index) {
+            console.log('completed', index);
+            console.log('completed', this.lists_todo[index].done);
+
+            this.lists_todo[index].done ^= 1
+
         }
     },
     mounted() {
